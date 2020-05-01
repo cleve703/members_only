@@ -1,0 +1,7 @@
+<% provide(:title, 'Posts') %>
+<h1>Index of posts</h1>
+<% @posts.each do |post| %>
+  <ul>
+    <li><%= post.content %> by <%= post.user_id %></li>
+  </ul>
+<% end %>
