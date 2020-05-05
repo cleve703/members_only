@@ -2,6 +2,6 @@
 <h1>Index of posts</h1>
 <% @posts.each do |post| %>
   <ul>
-    <li><%= post.content %> by <%= post.user_id %></li>
+    <li><%= post.content %> by <%= User.find_by(id:(post.user_id)).username %></li>
   </ul>
 <% end %>
