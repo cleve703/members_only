@@ -1,7 +1,15 @@
 <% provide(:title, 'Posts') %>
 <h1>Index of posts</h1>
-<% @posts.each do |post| %>
-  <ul>
-    <li><%= post.content %> by <%= User.find_by(id:(post.user_id)).username %></li>
-  </ul>
+  <% if user_signed_in? %>
+    <% @posts.each do |post| %>
+      <ul>
+        <li><%= post.content %> by <%= User.find_by(id:(post.user_id)).username %></li>
+      </ul>
+      <% end %>
+  <% else %>
+    <% @posts.each do |post| %>
+        <ul>
+          <li><%= post.content %></li>
+        </ul>
+    <% end %>
 <% end %>
